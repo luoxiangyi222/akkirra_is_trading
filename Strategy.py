@@ -9,8 +9,8 @@ class TestStrategy(bt.Strategy):
     def log(self, txt, dt=None):
         """
         Logging function for this strategy
-        :param txt:
-        :param dt:
+        :param txt: historical data
+        :param dt: time
         :return:
         """
 
