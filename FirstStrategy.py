@@ -1,7 +1,4 @@
-
 import backtrader as bt
-
-# Create a Strategy
 
 
 class TestStrategy(bt.Strategy):
@@ -31,18 +28,14 @@ class TestStrategy(bt.Strategy):
                 self.log('BUY EXECUTED {}'.format(order.executed.price))
             elif order.issell():
                 self.log('SELL EXECUTED {}'.format(order.executed.price))
-
             self.bar_executed = len(self)
 
         self.order = None
 
     def next(self):
+        print('next')
         # Simply log the closing price of the series from the reference
         self.log('Close, %.2f' % self.dataclose[0])
-
-        # print(len(self))
-        # print(self.order)
-        # print(self.position)
 
         if self.order:
             return
