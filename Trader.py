@@ -10,8 +10,8 @@ cerebro.broker.set_cash(1000000)
 print('Starting Portfolio Value: %.2f' % cerebro.broker.getvalue())
 
 # ########################
-AAPL_HISTORY = '/Users/akira/PycharmProjects/AkiraIsTrading/stocks_history_data/aapl.csv'
-
+AAPL_HISTORY = '/Users/akira/PycharmProjects/AkiraIsTrading/stocks_history_data/AAPL.csv'
+GME_HISTORY = '/Users/akira/PycharmProjects/AkiraIsTrading/stocks_history_data/GME.csv'
 
 # Create a Data Feed
 data = bt.feeds.YahooFinanceCSVData(
@@ -22,15 +22,12 @@ data = bt.feeds.YahooFinanceCSVData(
     todate=datetime.datetime(2021, 12, 31),
     reverse=False)
 
-cerebro.addsizer(bt.sizers.FixedSize, stake=1000)
 
+cerebro.addsizer(bt.sizers.FixedSize, stake=100)
 cerebro.adddata(data)
-
 cerebro.addstrategy(GoldenCrossStrategy)
-
 cerebro.run()
 
 print('Final Portfolio Value: %.2f' % cerebro.broker.getvalue())
-
 
 cerebro.plot()

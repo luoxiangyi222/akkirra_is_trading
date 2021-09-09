@@ -35,6 +35,7 @@ class TestStrategy(bt.Strategy):
     def next(self):
         print('next')
         # Simply log the closing price of the series from the reference
+        print(self.dataclose[0])
         self.log('Close, %.2f' % self.dataclose[0])
 
         if self.order:
