@@ -22,10 +22,6 @@ data = bt.feeds.YahooFinanceCSVData(
     todate=datetime.datetime(2021, 12, 31),
     reverse=False)
 
-
-# ibstore = bt.stores.IBStore(host='127.0.0.1', port=7496, clientId=35)
-# data = ibstore.getdata(dataname='EUR.USD-CASH-IDEALPRO')
-
 cerebro.addsizer(bt.sizers.FixedSize, stake=1000)
 
 cerebro.adddata(data)
